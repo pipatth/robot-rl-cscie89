@@ -8,7 +8,7 @@ class Noise:
         self.dt = dt
         self.reset()
 
-    def getNoise(self):
+    def get_noise(self):
         # compute noise using Euler-Maruyama method
         noise = self.noise_lag1 + self.theta * (self.mu - self.noise_lag1) * \
                 self.dt + self.sigma * np.sqrt(self.dt) * np.random.normal(size=self.mu.shape)

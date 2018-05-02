@@ -63,7 +63,7 @@ def train(sess, env, args, actor, critic, actor_noise, desired_goal_dim, achieve
 
             # predict action and add noise
             a = actor.predict(np.reshape(s, (1, actor.state_dim)))
-            a = a + actor_noise.getNoise()
+            a = a + actor_noise.get_noise()
 
             # play
             obs_next, reward, done, info = env.step(a[0])

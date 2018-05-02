@@ -5,7 +5,7 @@ import tensorflow.contrib as tc
 # Actor Class
 class Actor(object):
 
-    def __init__(self, sess, state_dim, action_dim, action_bound, learning_rate, tau, batch_size, hidden_size=64):
+    def __init__(self, sess, state_dim, action_dim, action_bound, learning_rate, tau, batch_size, hidden_size):
         self.sess = sess
         self.state_dim = state_dim
         self.action_dim = action_dim
@@ -90,7 +90,7 @@ class Actor(object):
 # Critic Class
 class Critic(object):
 
-    def __init__(self, sess, state_dim, action_dim, learning_rate, tau, gamma, n_actor_vars, hidden_size=64):
+    def __init__(self, sess, state_dim, action_dim, learning_rate, tau, gamma, n_actor_vars, hidden_size):
         self.sess = sess
         self.state_dim = state_dim
         self.action_dim = action_dim
@@ -168,13 +168,14 @@ class Critic(object):
             self.target_actions: actions
         })
 
+    # function to update target
+    def update(self):
+        self.sess.run(self.update_target_weights)
+
     # function to compute gradients to feed actor -- i.e. critic comment
     def get_comment_gradients(self, inputs, actions):
         return self.sess.run(self.comment_gradients, feed_dict={
             self.inputs: inputs,
             self.actions: actions
         })
-
-    def update(self):
-        self.sess.run(self.update_target_weights)
 
