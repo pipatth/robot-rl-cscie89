@@ -1,10 +1,10 @@
-import os
-import sys
+import os, sys, time
 import json
 import gym
 import argparse
 import numpy as np
 import tensorflow as tf
+from datetime import datetime
 from agent import Actor, Critic
 from replay import Memory
 from noise import Noise
@@ -23,7 +23,7 @@ def unpackObs(obs):
 def train(sess, env, args, actor, critic, actor_noise, desired_goal_dim, achieved_goal_dim, observation_dim):
 
     # Set path to save results
-    tensorboard_dir = './' + args['env'] + '_' + args['variation'] + '/tensorboard_train'
+    tensorboard_dir = './' + args['env'] + '_' + args['variation'] + '/train_' + datetime.now().strftime('%Y-%m-%d-%H')
     model_dir = './' + args['env'] + '_' + args['variation'] + '/model'
 
     # add summary to tensorboard
@@ -168,7 +168,7 @@ def train(sess, env, args, actor, critic, actor_noise, desired_goal_dim, achieve
 def test(sess, env, args, actor, critic, desired_goal_dim, achieved_goal_dim, observation_dim):
 
     # Set path to save results
-    tensorboard_dir = './' + args['env'] + '_' + args['variation'] + '/tensorboard_test'
+    tensorboard_dir = './' + args['env'] + '_' + args['variation'] + '/test_' + datetime.now().strftime('%Y-%m-%d-%H')
     model_dir = './' + args['env'] + '_' + args['variation'] + '/model'
 
     # add summary to tensorboard
@@ -316,14 +316,16 @@ if __name__ == '__main__':
     # others and defaults
     parser.add_argument('--seed', help='random seed', default=1234)
     parser.add_argument('--render', help='render the gym env', action='store_true')
-    parser.add_argument('--test-mode', help='test mode does not do exploration', action='store_true')
+    parser.add_argument('--test', help='test mode does not do exploration', action='store_true')
+    parser.add_argument('--variation', help='model variation name', default='DDPG_HER_PER')
     parser.set_defaults(env='FetchReach-v1')
-    parser.set_defaults(variation='DDPG_HER_PER')
     parser.set_defaults(render=False)
-    parser.set_defaults(test_mode=False)
+    parser.set_defaults(test=False)
 
     # parse arguments
     args = vars(parser.parse_args())
 
     # run main
+    start_time = time.time()
     main(args)
+    print("--- %s seconds ---" % (time.time() - start_time))

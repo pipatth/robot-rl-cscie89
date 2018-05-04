@@ -1,0 +1,2 @@
+model_checkpoint_path: "FetchReach-v1_DDPG_HER_b128_h512.ckpt"
+all_model_checkpoint_paths: "FetchReach-v1_DDPG_HER_b128_h512.ckpt"
