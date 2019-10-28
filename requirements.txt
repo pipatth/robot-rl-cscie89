@@ -6,7 +6,7 @@ glfw==1.6.0
 gym==0.10.5
 idna==2.6
 imageio==2.3.0
-Pillow==5.1.0
+Pillow==6.2.0
 pycparser==2.18
 pyglet==1.3.2
 requests==2.21.0
