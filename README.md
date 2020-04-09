@@ -10,7 +10,7 @@
 - Install the following packages in Ubuntu
 - Create a conda environment and install the packages from Anaconda and pip
 ```
-apt-get install -y libgl1-mesa-dev libgl1-mesa-glx libglew-dev libosmesa6-dev libglfw3 wget bzip2 git patchelf ffmpeg
+apt-get install -y libgl1-mesa-dev libgl1-mesa-glx libglew-dev libosmesa6-dev libglfw3 wget bzip2 git patchelf ffmpeg mesa-utils
 conda env create -f environment.yml
 pip install -r requirements.txt
 ```
