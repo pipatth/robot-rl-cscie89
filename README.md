@@ -33,6 +33,7 @@ export LD_LIBRARY_PATH=$MUJOCO_HOME/bin:$LD_LIBRARY_PATH
 
 #### How to run
 Due to the bug in mujoco-py when running with NVIDIA GPU, the workaround is to prepend the following before running a python command if you want to render the training.
+Note: if you re-install NVIDIA driver during the installation process above, reboot before running this.
 ```
 LD_PRELOAD=/usr/lib/x86_64-linux-gnu/libGLEW.so:/usr/lib/x86_64-linux-gnu/libGL.so python fetchreach.py --render
 ```
