@@ -15,8 +15,8 @@ pip install -r requirements.txt
 ```
 
 #### Install Mujoco
-- Download Mujoco 150 from https://www.roboti.us/index.html 
-- Unzip the downloaded mjpro150 directory into ~/.mujoco/mjpro150 
+- Download Mujoco 200 from https://www.roboti.us/index.html 
+- Unzip the downloaded mjpro200 directory into ~/.mujoco/mjpro200 
 - Place your license key (the mjkey.txt file from your email) at ~/.mujoco/mjkey.txt.
 - Run the following code to install mujoco-py
 ```
@@ -26,7 +26,7 @@ pip install .
 ```
 - Append the following lines to .bashrc 
 ```
-export MUJOCO_HOME=$HOME/.mujoco/mjpro150
+export MUJOCO_HOME=$HOME/.mujoco/mjpro200
 export LD_LIBRARY_PATH=$MUJOCO_HOME/bin:$LD_LIBRARY_PATH
 export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/lib/nvidia-384
 ```
