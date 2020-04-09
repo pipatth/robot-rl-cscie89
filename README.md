@@ -6,6 +6,7 @@
 
 #### Install dependencies 
 
+- Follow the instruction to install NVIDIA CUDA here: https://www.tensorflow.org/install/gpu#ubuntu_1804_cuda_101
 - Install the following packages in Ubuntu
 - Create a conda environment and install the packages from Anaconda and pip
 ```
