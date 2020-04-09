@@ -29,11 +29,10 @@ pip install .
 ```
 export MUJOCO_HOME=$HOME/.mujoco/mjpro200
 export LD_LIBRARY_PATH=$MUJOCO_HOME/bin:$LD_LIBRARY_PATH
-export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/lib/nvidia-384
 ```
 
 #### How to run
-Due to the bug in mujoco-py when running with NVIDIA GPU, the workaround is to prepend the following before running a python command
+Due to the bug in mujoco-py when running with NVIDIA GPU, the workaround is to prepend the following before running a python command if you want to render the training.
 ```
-LD_PRELOAD=/usr/lib/x86_64-linux-gnu/libGLEW.so:/usr/lib/nvidia-384/libGL.so python fetchreach.py
+LD_PRELOAD=/usr/lib/x86_64-linux-gnu/libGLEW.so:/usr/lib/x86_64-linux-gnu/libGL.so python fetchreach.py --render
 ```
